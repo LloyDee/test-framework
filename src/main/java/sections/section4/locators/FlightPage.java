@@ -16,7 +16,10 @@ public class FlightPage {
     public By done = By.id("btnclosepaxoption");
     public By from = By.xpath("//a[@value='DEL']");
     public By to = By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']");
-    public By dateFlight = By.xpath("//td[@data-month='11'] //a[text()=\"25\"]");
+    int day = 30;
+    public String selectDate = "//td[@data-month='11'] //a[text()="+"\""+day+"\"]";
+//    public By dateFlight = By.xpath("//td[@data-month='11'] //a[text()=\"25\"]");
+    public By dateFlight = By.xpath(selectDate);
     public By searchBar = By.id("autosuggest");
     public By searchResults = By.xpath("//a[@class='ui-corner-all']");
     public By familyAndFriendsCheckBox = By.xpath("//input[contains(@id,'friendsandfamily')]");

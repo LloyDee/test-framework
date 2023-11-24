@@ -54,16 +54,8 @@ public class Runner {
          */
 
 
-        methods.click(driver.findElement(flight.departure));
-        methods.click(driver.findElement(flight.from));
-        methods.click(driver.findElement(flight.to));
-        methods.click(driver.findElement(flight.dateFlight));
-        methods.click(driver.findElement(flight.familyAndFriendsCheckBox));
-        methods.click(driver.findElement(flight.passengers));
-        flightPage.addAdultPassenger(1);
-        flightPage.addChildPassenger(3);
-        flightPage.addInfantPassenger(1);
-        methods.selectByValue(driver,flight.currencyDropdown,"USD");
+        flightPage.bookAFlight(1,3,1, "USD");
+        methods.selectByValue(driver, flight.currencyDropdown, "USD");
 
         /** Assertions with Checkboxes**/
 

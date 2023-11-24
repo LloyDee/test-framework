@@ -28,19 +28,67 @@ public class FlightPageFlow {
         methods.click(driver, flightPage.done);
     }
 
-    public void addAdultPassenger(int number) throws InterruptedException {
+    private void addAdultPassenger(int number) throws InterruptedException {
         for (int i = 0; i < number; i++) {
             methods.click(driver, flightPage.adultIncrement);
         }
     }
 
-    public void addChildPassenger(int number) throws InterruptedException {
+    public void bookAFlight(int adultPass, int chilPass, int infantpas, String currency) throws InterruptedException {
+        clickDeparture();
+        selectFlightFrom();
+        selectFlightTO();
+        dateFlight();
+        selectDiscount();
+        clickPassenger();
+        selectNumberOfPassenger(adultPass,chilPass,infantpas);
+        selectCurrency(currency);
+
+    }
+    private void selectCurrency(String currency){
+        methods.selectByValue(driver,flightPage.currencyDropdown, currency);
+    }
+
+    private void selectNumberOfPassenger(int adultPass, int chilPass, int infantpas) throws InterruptedException {
+        addAdultPassenger(adultPass);
+        addChildPassenger(chilPass);
+        addInfantPassenger(infantpas);
+    }
+    private void clickPassenger() throws InterruptedException {
+        methods.click(driver, flightPage.passengers);
+
+    } private void selectDiscount() throws InterruptedException {
+        methods.click(driver, flightPage.familyAndFriendsCheckBox);
+
+    }
+
+    private void clickDeparture() throws InterruptedException {
+        methods.click(driver, flightPage.departure);
+
+    }
+
+    private void selectFlightFrom() throws InterruptedException {
+        methods.click(driver, flightPage.from);
+
+    }
+
+    private void selectFlightTO() throws InterruptedException {
+        methods.click(driver, flightPage.to);
+
+    }
+
+    private void dateFlight() throws InterruptedException {
+        methods.click(driver, flightPage.dateFlight);
+
+    }
+
+    private void addChildPassenger(int number) throws InterruptedException {
         for (int i = 0; i < number; i++) {
             methods.click(driver, flightPage.childIncrement);
         }
     }
 
-    public void addInfantPassenger(int number) throws InterruptedException {
+    private void addInfantPassenger(int number) throws InterruptedException {
         for (int i = 0; i < number; i++) {
             methods.click(driver, flightPage.infantIncrement);
         }
